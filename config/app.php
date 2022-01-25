@@ -136,6 +136,8 @@ return [
     |
     */
 
+    //Laravelの各種設定を決めているファイル
+    //ライブラリを使用できるようにしている（セットしている）
     'providers' => [
 
         /*
@@ -193,6 +195,7 @@ return [
     |
     */
 
+    //セットしたライブラリをオンにして使用できるようにしている
     'aliases' => [
 
         'App' => Illuminate\Support\Facades\App::class,
