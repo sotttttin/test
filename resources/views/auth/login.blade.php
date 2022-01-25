@@ -7,9 +7,9 @@
 <p>DAWNSNSへようこそ</p>
 
 {{ Form::label('e-mail') }}　　　　　　　　　　　　　　　　<!--emailの欄を作成-->
-{{ Form::text('mail',null,['class' => 'input']) }}　　　 <!--emailの欄を作成-->
+{{ Form::text('mail',null,['class' => 'input']) }}　　　 <!--属性を記述 第一,第二,第三引数-->
 {{ Form::label('password') }}                           <!--パスワード欄を作成-->
-{{ Form::password('password',['class' => 'input']) }}
+{{ Form::password('password',['class' => 'input']) }}   <!--属性を記述 第一,第二,第三引数-->
 
 {{ Form::submit('ログイン') }}                           <!--ログインボタンを作成-->
 
