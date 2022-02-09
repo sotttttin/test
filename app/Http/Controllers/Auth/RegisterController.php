@@ -61,9 +61,9 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
+    protected function create(array $data) //username,mail,passwordをuserテーブルに新規登録している
     {
-        return User::create([
+        return User::create([　//テーブルにデータを新規作成する事を明示
             'username' => $data['username'],
             'mail' => $data['mail'],
             'password' => bcrypt($data['password']),
