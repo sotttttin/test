@@ -37,7 +37,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('guest'); //すでにログインしていたらtopページに行ける
     }
 
     /**
@@ -63,7 +63,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data) //username,mail,passwordをuserテーブルに新規登録している
     {
-        return User::create([　//テーブルにデータを新規作成する事を明示
+        return User::create([
             'username' => $data['username'],
             'mail' => $data['mail'],
             'password' => bcrypt($data['password']),
@@ -80,7 +80,7 @@ class RegisterController extends Controller
             $data = $request->input();
 
             $this->create($data);
-            return redirect('added');
+            return redirect('/added')->with('username', $data['username']);
         }
         return view('auth.register');
     }
@@ -88,4 +88,5 @@ class RegisterController extends Controller
     public function added(){
         return view('auth.added');
     }
+
 }
