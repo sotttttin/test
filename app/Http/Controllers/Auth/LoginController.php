@@ -38,15 +38,15 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-    
-    public function login(Request $request){
-        if($request->isMethod('post')){
-            
-            $data=$request->only('mail','password');
+
+    public function login(Request $request){ //送られたデータが$requestに入る
+        if($request->isMethod('post')){ //post通信かどうか判断
+
+            $data=$request->only('mail','password'); //post通信のデータ(mail,password)を$data箱へ格納
             // ログインが成功したら、トップページへ
             //↓ログイン条件は公開時には消すこと
-            if(Auth::attempt($data)){
-                return redirect('/top');
+            if(Auth::attempt($data)){ //$dataに入っているデータを認証したら
+                return redirect('/top'); //topページに返す
             }
         }
         return view("auth.login");
